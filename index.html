@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://apex.aziro.io; base-uri 'none'; form-action 'none'" />
+  <meta name="referrer" content="no-referrer" />
+  <title>AsterWorks Assistant</title>
+  <meta name="description" content="Ask questions across Jira, Confluence, GitHub, Slack, Drive, Gmail and Salesforce, and run approved actions." />
+  <link rel="icon" type="image/png" href="assets/aziro-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="aziro.css" />
+  <link rel="stylesheet" href="site.css" />
+</head>
+<body>
+  <header class="az-topbar">
+    <div class="az-topbar-inner">
+      <a class="az-brand" href="./">
+        <img src="assets/aziro-logo.png" alt="Aziro" width="40" height="40" />
+        <span class="az-brand-divider" aria-hidden="true"></span>
+        <span class="az-brand-name">AsterWorks Assistant</span>
+      </a>
+      <button id="newChat" class="az-btn az-btn-secondary btn-sm" type="button">New chat</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="az-hero hero">
+      <span class="az-eyebrow">AsterWorks Assistant</span>
+      <h1>Every answer from your <span class="az-accent">company</span> systems, in one place</h1>
+      <p>Ask about incidents, customers and releases. Answers cite their sources, and actions such as emails,
+        Jira issues and Slack posts run only after you approve them.</p>
+      <ul class="systems" aria-label="Connected systems">
+        <li>Jira</li><li>Confluence</li><li>GitHub</li><li>Slack</li><li>Google Drive</li><li>Gmail</li><li>Salesforce</li>
+      </ul>
+    </section>
+
+    <section class="az-card chat" aria-label="Chat">
+      <div id="log" class="log" role="log" aria-live="polite" aria-relevant="additions">
+        <div id="empty" class="empty">
+          <span class="az-badge">Try asking</span>
+          <div class="chips">
+            <button class="az-chip" type="button" data-q="What happened in the BluePeak AsterConnect outage?">What happened in the BluePeak outage?</button>
+            <button class="az-chip" type="button" data-q="What was the root cause of CONN-1 and which pull request fixed it?">Root cause of CONN-1 and the fix</button>
+            <button class="az-chip" type="button" data-q="What did BluePeak ask for in their escalation emails, and who is the contact?">What did BluePeak ask for?</button>
+            <button class="az-chip" type="button" data-q="Post a short status update in #incident-response summarising the BluePeak outage and its fix, with links.">Post a status update in Slack</button>
+          </div>
+          <p class="az-hint">Actions are previewed first. Nothing is sent or created until you choose <strong>Proceed</strong>.</p>
+        </div>
+      </div>
+
+      <form id="composer" class="composer" autocomplete="off">
+        <label class="sr-only" for="q">Your question</label>
+        <textarea id="q" class="az-input" rows="1" maxlength="4000"
+                  placeholder="Ask a question or describe an action…"></textarea>
+        <button id="send" class="az-btn az-btn-primary" type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="az-footer">
+    <img src="assets/aziro-logo.png" alt="" width="28" height="28" />
+    <span>AsterWorks Assistant · Built by <a href="https://www.aziro.com/" target="_blank" rel="noopener">Aziro</a></span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
