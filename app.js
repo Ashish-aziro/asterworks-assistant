@@ -2,7 +2,7 @@
 (() => {
   "use strict";
 
-  const API_URL = "https://apex.aziro.io/apexflow/api/v1/prediction/a88b86cb-7c8c-4a8c-a649-bd70655837aa";
+  const API_URL = "https://apex.aziro.io/apexflow/api/v1/prediction/1700a5e7-a843-4cdc-be31-79372e24ca08";
   const HUMAN_INPUT_NODE = "humanInputAgentflow_0";
   const APPROVAL_PREFIX = "**Please approve this action.**";
   const REQUEST_TIMEOUT_MS = 180000;
